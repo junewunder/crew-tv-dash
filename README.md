@@ -6,7 +6,7 @@
  - JW - Article of the day (Top on HN)
  - EW - CS events calendar (embedded google cal)
 
-Carousel scrolls through different ajax calls
+JW - Carousel scrolls through different ajax calls
 
 You get a `<section>` to work with
 
