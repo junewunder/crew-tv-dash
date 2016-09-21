@@ -1,0 +1,24 @@
+{
+  "name": "tv-dash",
+  "version": "1.0.0",
+  "description": "Dashboard for the CS Crew TV at UVM",
+  "main": "index.html",
+  "scripts": {
+    "test": "open index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jaywunder/crew-tv-dash.git"
+  },
+  "keywords": [
+    "TV",
+    "cool",
+    "info"
+  ],
+  "author": "Jacob Wunder <jacob@jacobwunder.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jaywunder/crew-tv-dash/issues"
+  },
+  "homepage": "https://github.com/jaywunder/crew-tv-dash#readme"
+}
