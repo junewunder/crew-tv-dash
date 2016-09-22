@@ -19,13 +19,16 @@ $('#main-section').slick({
 const pages = ['test', 'test2']
 
 for (const pageName of pages) {
-  const id = `section-${pageName}`
-  fetch('/pages/' + pageName + '.html')
+  const id = `section-${ pageName }`
+  fetch(`/pages/${ pageName }.html`)
     .then((response) => response.text())
     .then((htmlText) => {
       $('#main-section').slick(
         'slickAdd',
-        `<section id="${id}">${htmlText}</section>`
+        `<section id="${ id }">${ htmlText }</section>`
       )
+    })
+    .then(() => {
+      $.getScript(`/js/${ pageName }.js`)
     })
 }

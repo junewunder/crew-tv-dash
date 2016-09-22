@@ -10187,6 +10187,8 @@ try {
       return response.text();
     }).then(function (htmlText) {
       (0, _jquery2.default)('#main-section').slick('slickAdd', '<section id="' + id + '">' + htmlText + '</section>');
+    }).then(function () {
+      _jquery2.default.getScript('/js/' + pageName + '.js');
     });
   };
 
