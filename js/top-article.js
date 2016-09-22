@@ -1,5 +1,3 @@
-import qr from 'qr-js'
-
 const NUMBER_OF_TOP_STORIES = 5
 
 // 1000 milliseconds * 60 seconds * 30 minutes
