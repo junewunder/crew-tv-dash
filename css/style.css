@@ -1,0 +1,61 @@
+* {
+  outline: none;
+
+  /* color pallette from https://coolors.co/bce784-5dd39e-348aa7-525174-513b56 */
+  --lime-green: #BCE784;
+  --forest-green: #5DD39E;
+  --steel-blue: #348AA7;
+  --dark-blue: #525174;
+  --purple-blue: #513B56;
+
+  --text-color: rgb(33, 33, 33);
+}
+
+html, body, section {
+  height: 100%;
+  margin: 0px;
+  color: var(--text-color);
+  font-family: sans-serif;
+}
+
+body {
+  background-color: var(--lime-green);
+}
+
+.slick-slide {
+  padding: 2em;
+}
+
+#dots-container {
+  position: fixed;
+  bottom: 0;
+}
+
+#dots-container, .slick-dots {
+  width: 100%;
+}
+
+.slick-dots {
+  padding-left: 0;
+  display: flex;
+  justify-content: center;
+  list-style-type: none;
+}
+
+.slick-dots li {
+  margin-left: 2em;
+  margin-right: 2em;
+}
+
+.slick-dots li button {
+  color: rgba(255, 255, 255, 0);
+  background-color: rgba(255, 255, 255, 0);
+  border-radius: 1.5em;
+  height: 3em;
+  width: 3em;
+  border: var(--steel-blue) 1em solid;
+}
+
+.slick-dots li.slick-active button {
+  background-color: var(--dark-blue);
+}
