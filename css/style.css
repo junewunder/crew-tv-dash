@@ -1,0 +1,46 @@
+* {
+  outline: none;
+}
+
+html, body, section {
+  height: 100%;
+  margin: 0px;
+}
+
+.slick-slide {
+  padding: 2em;
+}
+
+#dots-container {
+  position: fixed;
+  bottom: 0;
+}
+
+#dots-container, .slick-dots {
+  width: 100%;
+}
+
+.slick-dots {
+  padding-left: 0;
+  display: flex;
+  justify-content: center;
+  list-style-type: none;
+}
+
+.slick-dots li {
+  margin-left: 2em;
+  margin-right: 2em;
+}
+
+.slick-dots li button {
+  color: rgba(255, 255, 255, 0);
+  background-color: rgba(255, 255, 255, 0);
+  border-radius: 1.5em;
+  height: 3em;
+  width: 3em;
+  border: rgba(85, 103, 158, 0.5) 1em solid;
+}
+
+.slick-dots li.slick-active button {
+  background-color: rgba(55, 88, 186, 0.5);
+}

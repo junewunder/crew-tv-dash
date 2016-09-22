@@ -10163,9 +10163,16 @@ window.jQuery = _jquery2.default;
 
 __webpack_require__(2);
 
-var pages = ['test', 'test2'];
+(0, _jquery2.default)('#main-section').slick({
+  adaptiveHeight: true,
+  autoplay: true,
+  autoplaySpeed: 3000,
+  arrows: false,
+  appendDots: '#dots-container',
+  dots: true
+});
 
-(0, _jquery2.default)('#main-section').slick();
+var pages = ['test', 'test2'];
 
 var _iteratorNormalCompletion = true;
 var _didIteratorError = false;
@@ -10177,12 +10184,9 @@ try {
 
     var id = 'section-' + pageName;
     fetch('/pages/' + pageName + '.html').then(function (response) {
-
       return response.text();
     }).then(function (htmlText) {
-
       (0, _jquery2.default)('#main-section').slick('slickAdd', '<section id="' + id + '">' + htmlText + '</section>');
-      // $('#'+id).html(htmlText)
     });
   };
 

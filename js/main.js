@@ -7,21 +7,25 @@ window.jQuery = jQuery;
 
 require('../lib/slick.min.js')
 
-const pages = ['test', 'test2']
+$('#main-section').slick({
+  adaptiveHeight: true,
+  autoplay: true,
+  autoplaySpeed: 3000,
+  arrows: false,
+  appendDots: '#dots-container',
+  dots: true,
+})
 
-$('#main-section').slick()
+const pages = ['test', 'test2']
 
 for (const pageName of pages) {
   const id = `section-${pageName}`
   fetch('/pages/' + pageName + '.html')
-    .then((response) => {
-
-      return response.text()
-
-    }) .then((htmlText) => {
-
-      $('#main-section').slick('slickAdd', `<section id="${id}">${htmlText}</section>`)
-      // $('#'+id).html(htmlText)
-
+    .then((response) => response.text())
+    .then((htmlText) => {
+      $('#main-section').slick(
+        'slickAdd',
+        `<section id="${id}">${htmlText}</section>`
+      )
     })
 }
