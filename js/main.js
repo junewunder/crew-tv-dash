@@ -8,7 +8,6 @@ window.jQuery = jQuery;
 require('../lib/slick.min.js')
 
 $('#main-section').slick({
-  adaptiveHeight: true,
   autoplay: true,
   autoplaySpeed: 3000,
   arrows: false,
@@ -16,7 +15,7 @@ $('#main-section').slick({
   dots: true,
 })
 
-const pages = ['test', 'test2']
+const pages = ['top-article']
 
 for (const pageName of pages) {
   const id = `section-${ pageName }`
@@ -32,6 +31,7 @@ for (const pageName of pages) {
       $.getScript(`/js/${ pageName }.js`)
     })
     .then(() => {
-      $('head').append(`<link rel="stylesheet" href="${ pageName }.css" type="text/css"/>`);
+      $('head').append(`<link rel="stylesheet" href="/css/${ pageName }.css" type="text/css"/>`);
     })
+    .then(() => $('.slick-list')[0].style = '')
 }
