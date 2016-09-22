@@ -61,7 +61,7 @@
 /******/ 	__webpack_require__.p = "/build/";
 
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 1);
+/******/ 	return __webpack_require__(__webpack_require__.s = 2);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -10149,74 +10149,6 @@ return jQuery;
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
-'use strict';
-
-var _jquery = __webpack_require__(0);
-
-var _jquery2 = _interopRequireDefault(_jquery);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-// export for others scripts to use
-window.$ = _jquery2.default;
-window.jQuery = _jquery2.default;
-
-__webpack_require__(2);
-
-(0, _jquery2.default)('#main-section').slick({
-  adaptiveHeight: true,
-  autoplay: true,
-  autoplaySpeed: 3000,
-  arrows: false,
-  appendDots: '#dots-container',
-  dots: true
-});
-
-var pages = ['test', 'test2'];
-
-var _iteratorNormalCompletion = true;
-var _didIteratorError = false;
-var _iteratorError = undefined;
-
-try {
-  var _loop = function _loop() {
-    var pageName = _step.value;
-
-    var id = 'section-' + pageName;
-    fetch('/pages/' + pageName + '.html').then(function (response) {
-      return response.text();
-    }).then(function (htmlText) {
-      (0, _jquery2.default)('#main-section').slick('slickAdd', '<section id="' + id + '">' + htmlText + '</section>');
-    }).then(function () {
-      _jquery2.default.getScript('/js/' + pageName + '.js');
-    }).then(function () {
-      (0, _jquery2.default)('head').append('<link rel="stylesheet" href="' + pageName + '.css" type="text/css"/>');
-    });
-  };
-
-  for (var _iterator = pages[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-    _loop();
-  }
-} catch (err) {
-  _didIteratorError = true;
-  _iteratorError = err;
-} finally {
-  try {
-    if (!_iteratorNormalCompletion && _iterator.return) {
-      _iterator.return();
-    }
-  } finally {
-    if (_didIteratorError) {
-      throw _iteratorError;
-    }
-  }
-}
-
-/***/ },
-/* 2 */
-/***/ function(module, exports, __webpack_require__) {
-
-"use strict";
 var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;"use strict";
 
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
@@ -10644,6 +10576,74 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
     }return a;
   };
 });
+
+/***/ },
+/* 2 */
+/***/ function(module, exports, __webpack_require__) {
+
+"use strict";
+'use strict';
+
+var _jquery = __webpack_require__(0);
+
+var _jquery2 = _interopRequireDefault(_jquery);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+// export for others scripts to use
+window.$ = _jquery2.default;
+window.jQuery = _jquery2.default;
+
+__webpack_require__(1);
+
+(0, _jquery2.default)('#main-section').slick({
+  adaptiveHeight: true,
+  autoplay: true,
+  autoplaySpeed: 3000,
+  arrows: false,
+  appendDots: '#dots-container',
+  dots: true
+});
+
+var pages = ['test', 'test2'];
+
+var _iteratorNormalCompletion = true;
+var _didIteratorError = false;
+var _iteratorError = undefined;
+
+try {
+  var _loop = function _loop() {
+    var pageName = _step.value;
+
+    var id = 'section-' + pageName;
+    fetch('/pages/' + pageName + '.html').then(function (response) {
+      return response.text();
+    }).then(function (htmlText) {
+      (0, _jquery2.default)('#main-section').slick('slickAdd', '<section id="' + id + '">' + htmlText + '</section>');
+    }).then(function () {
+      _jquery2.default.getScript('/js/' + pageName + '.js');
+    }).then(function () {
+      (0, _jquery2.default)('head').append('<link rel="stylesheet" href="/css/' + pageName + '.css" type="text/css"/>');
+    });
+  };
+
+  for (var _iterator = pages[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+    _loop();
+  }
+} catch (err) {
+  _didIteratorError = true;
+  _iteratorError = err;
+} finally {
+  try {
+    if (!_iteratorNormalCompletion && _iterator.return) {
+      _iterator.return();
+    }
+  } finally {
+    if (_didIteratorError) {
+      throw _iteratorError;
+    }
+  }
+}
 
 /***/ }
 /******/ ]);

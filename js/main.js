@@ -32,6 +32,6 @@ for (const pageName of pages) {
       $.getScript(`/js/${ pageName }.js`)
     })
     .then(() => {
-      $('head').append(`<link rel="stylesheet" href="${ pageName }.css" type="text/css"/>`);
+      $('head').append(`<link rel="stylesheet" href="/css/${ pageName }.css" type="text/css"/>`);
     })
 }
