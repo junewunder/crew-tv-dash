@@ -72,6 +72,9 @@
 "use strict";
 'use strict';
 
+// import QRCode from '../lib/qrcode.min.js'
+// require('../lib/qrcode.min.js')
+
 var NUMBER_OF_TOP_STORIES = 5;
 
 // 1000 milliseconds * 60 seconds * 30 minutes
@@ -96,7 +99,6 @@ function fetchTopStories() {
         fetch('https://hacker-news.firebaseio.com/v0/item/' + storyID + '.json').then(function (response) {
           return response.json();
         }).then(function (storyJson) {
-
           topStories.push(storyJson);
 
           if (topStories.length > NUMBER_OF_TOP_STORIES) {
@@ -138,8 +140,10 @@ function renderTopStories(topStories) {
     for (var _iterator2 = topStories[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
       var story = _step2.value;
 
-      $('#story-table').append('\n      <tr>\n        <td class="story-qr">\n          <canvas id="story-id-' + story.id + '"></canvas>\n        </td>\n        <td class="story-title">\n          <h2>' + story.title + '</h2>\n          <h4>' + story.url + '</h4>\n        </td>\n      </tr>\n    ');
-      new QRCode(document.getElementById('story-id-' + story.id), story.url, {});
+      $('#story-table').append('\n      <tr>\n        <td class="story-qr">\n          <div id="story-id-' + story.id + '"></div>\n        </td>\n        <td class="story-title">\n          <h2>' + story.title + '</h2>\n          <h4>' + story.url + '</h4>\n        </td>\n      </tr>\n    ');
+
+      var elem = document.getElementById('story-id-' + story.id);
+      new QRCode(elem, story.url);
     }
   } catch (err) {
     _didIteratorError2 = true;

@@ -10620,7 +10620,7 @@ try {
     }).then(function (htmlText) {
       (0, _jquery2.default)('#main-section').slick('slickAdd', '<section id="' + id + '">' + htmlText + '</section>');
     }).then(function () {
-      _jquery2.default.getScript('/js/' + pageName + '.js');
+      _jquery2.default.getScript('/build/' + pageName + '.js');
     }).then(function () {
       (0, _jquery2.default)('head').append('<link rel="stylesheet" href="/css/' + pageName + '.css" type="text/css"/>');
     }).then(function () {

@@ -28,7 +28,7 @@ for (const pageName of pages) {
       )
     })
     .then(() => {
-      $.getScript(`/js/${ pageName }.js`)
+      $.getScript(`/build/${ pageName }.js`)
     })
     .then(() => {
       $('head').append(`<link rel="stylesheet" href="/css/${ pageName }.css" type="text/css"/>`);
