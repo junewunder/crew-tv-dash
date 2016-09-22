@@ -1,9 +1,25 @@
+let fs = require('fs')
+
+function generateEntryPoints() {
+  let entryPoints = {}
+
+  let jsFiles = fs.readdirSync('/Users/JacobWunder/Documents/crew-tv-dash/js')
+  for(const fileName of jsFiles) {
+    let name = fileName.split('.')[0]
+    entryPoints[name] = './js/' + fileName
+  }
+
+  return entryPoints
+}
+
+let entryPoints = generateEntryPoints()
+
 module.exports = {
-  entry: './js/main.js',
+  entry: entryPoints,
   output: {
     path: __dirname + '/build',
     publicPath: '/build/',
-    filename: 'bundle.js',
+    filename: '[name].js',
   },
   module: {
     loaders: [
