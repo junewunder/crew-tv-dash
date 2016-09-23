@@ -61,21 +61,41 @@
 /******/ 	__webpack_require__.p = "/build/";
 
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 3);
+/******/ 	return __webpack_require__(__webpack_require__.s = 4);
 /******/ })
 /************************************************************************/
-/******/ ({
-
-/***/ 3:
+/******/ ([
+/* 0 */,
+/* 1 */
 /***/ function(module, exports) {
 
 "use strict";
 'use strict';
 
-// import QRCode from '../lib/qrcode.min.js'
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var API_KEY = exports.API_KEY = 'AIzaSyB8gKeYHVGeDb6c-lNJlr7XNb99IP48K5c';
+
+/***/ },
+/* 2 */,
+/* 3 */,
+/* 4 */
+/***/ function(module, exports, __webpack_require__) {
+
+"use strict";
+'use strict';
+
+var _conf = __webpack_require__(1);
+
+console.log(_conf.API_KEY); // import QRCode from '../lib/qrcode.min.js'
 // require('../lib/qrcode.min.js')
 
-var NUMBER_OF_TOP_STORIES = 5;
+// Key to goo.gl URL Shortener
+// const API_KEY = 'AIzaSyB8gKeYHVGeDb6c-lNJlr7XNb99IP48K5c'
+
+
+var NUMBER_OF_TOP_STORIES = 4;
 
 // 1000 milliseconds * 60 seconds * 30 minutes
 var REFRESH_RATE = 1000 * 60 * 30;
@@ -88,6 +108,7 @@ function fetchTopStories() {
     return response.json();
   }).then(function (allTopStories) {
     var topStories = [];
+    var storiesProcessed = 0;
     var _iteratorNormalCompletion = true;
     var _didIteratorError = false;
     var _iteratorError = undefined;
@@ -107,8 +128,8 @@ function fetchTopStories() {
             });
             topStories.splice(NUMBER_OF_TOP_STORIES, 1);
           }
-        }).then(function () {
-          renderTopStories(topStories);
+
+          storiesProcessed++;
         });
       }
     } catch (err) {
@@ -125,6 +146,13 @@ function fetchTopStories() {
         }
       }
     }
+
+    var renderCheck = setInterval(function () {
+      if (storiesProcessed < 30) return;else {
+        renderTopStories(topStories);
+        clearInterval(renderCheck);
+      }
+    }, 100);
   });
 }
 
@@ -137,13 +165,33 @@ function renderTopStories(topStories) {
   var _iteratorError2 = undefined;
 
   try {
-    for (var _iterator2 = topStories[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
+    var _loop = function _loop() {
       var story = _step2.value;
 
-      $('#story-table').append('\n      <tr>\n        <td class="story-qr">\n          <div id="story-id-' + story.id + '"></div>\n        </td>\n        <td class="story-title">\n          <h2>' + story.title + '</h2>\n          <h4>' + story.url + '</h4>\n        </td>\n      </tr>\n    ');
+      $('#story-table').append('\n      <tr class="story-row">\n        <td class="story-qr">\n          <div id="story-id-' + story.id + '"></div>\n        </td>\n        <td class="story-title-container">\n          <h2 class="story-title">' + story.title + '</h2>\n          <h4 class="story-url">' + story.url + '</h4>\n        </td>\n      </tr>\n    ');
 
-      var elem = document.getElementById('story-id-' + story.id);
-      new QRCode(elem, story.url);
+      fetch('https://www.googleapis.com/urlshortener/v1/url?key=' + _conf.API_KEY, {
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        method: "POST",
+        body: JSON.stringify({ 'longUrl': story.url })
+      }).then(function (response) {
+        return response.json();
+      }).then(function (json) {
+        var elem = document.getElementById('story-id-' + story.id);
+        new QRCode(elem, {
+          text: json.id,
+          width: 128,
+          height: 128,
+          colorDark: '#BCE784',
+          colorLight: '#5DD39E'
+        });
+      });
+    };
+
+    for (var _iterator2 = topStories[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
+      _loop();
     }
   } catch (err) {
     _didIteratorError2 = true;
@@ -162,5 +210,4 @@ function renderTopStories(topStories) {
 }
 
 /***/ }
-
-/******/ });
+/******/ ]);

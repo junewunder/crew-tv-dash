@@ -15,7 +15,7 @@ $('#main-section').slick({
   dots: true,
 })
 
-const pages = ['top-article']
+const pages = ['top-article']//, 'test', 'test2']
 
 for (const pageName of pages) {
   const id = `section-${ pageName }`

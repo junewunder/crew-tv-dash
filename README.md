@@ -13,5 +13,8 @@ You get a `<section>` to work with
 ### Libraries
  - jQuery
  - d3
+ - https://github.com/davidshimjs/qrcodejs
+ - http://kenwheeler.github.io/slick/
+ - https://github.com/HackerNews/API
 
 startup script clones github.com/jaywunder/crew-tv-dash

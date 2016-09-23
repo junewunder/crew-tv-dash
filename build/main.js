@@ -61,7 +61,7 @@
 /******/ 	__webpack_require__.p = "/build/";
 
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 2);
+/******/ 	return __webpack_require__(__webpack_require__.s = 3);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -10145,7 +10145,8 @@ return jQuery;
 
 
 /***/ },
-/* 1 */
+/* 1 */,
+/* 2 */
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10578,7 +10579,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 });
 
 /***/ },
-/* 2 */
+/* 3 */
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10594,7 +10595,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 window.$ = _jquery2.default;
 window.jQuery = _jquery2.default;
 
-__webpack_require__(1);
+__webpack_require__(2);
 
 (0, _jquery2.default)('#main-section').slick({
   autoplay: true,
@@ -10604,7 +10605,7 @@ __webpack_require__(1);
   dots: true
 });
 
-var pages = ['top-article'];
+var pages = ['top-article']; //, 'test', 'test2']
 
 var _iteratorNormalCompletion = true;
 var _didIteratorError = false;
