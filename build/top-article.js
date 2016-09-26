@@ -175,7 +175,7 @@ function renderTopStories(topStories) {
           'Content-Type': 'application/json'
         },
         method: "POST",
-        body: JSON.stringify({ 'longUrl': story.url })
+        body: JSON.stringify({ 'longUrl': story.url || 'https://news.ycombinator.com/item?id=' + story.id })
       }).then(function (response) {
         return response.json();
       }).then(function (json) {

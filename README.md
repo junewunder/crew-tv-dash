@@ -10,7 +10,7 @@ JW - Carousel scrolls through different ajax calls
 
 You get a `<section>` to work with
 
-### Libraries
+### Libraries/APIs
  - jQuery
  - d3
  - https://github.com/davidshimjs/qrcodejs
