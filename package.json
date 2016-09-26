@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/jaywunder/crew-tv-dash/issues"
   },
-  "homepage": "https://github.com/jaywunder/crew-tv-dash#readme"
+  "homepage": "https://github.com/jaywunder/crew-tv-dash#readme",
+  "dependencies": {
+    "jquery": "^3.1.0"
+  }
 }
