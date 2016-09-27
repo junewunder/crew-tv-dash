@@ -6,6 +6,7 @@ window.$ = $;
 window.jQuery = jQuery;
 
 require('../lib/slick.min.js')
+require('bootstrap')
 
 $('#main-section').slick({
   autoplay: true,
@@ -15,7 +16,7 @@ $('#main-section').slick({
   dots: true,
 })
 
-const pages = ['top-article']//, 'test', 'test2']
+const pages = ['top-article', 'test', 'test2']
 
 for (const pageName of pages) {
   const id = `section-${ pageName }`

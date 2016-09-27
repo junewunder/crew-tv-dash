@@ -4,9 +4,8 @@
 // Key to goo.gl URL Shortener
 // const API_KEY = 'AIzaSyB8gKeYHVGeDb6c-lNJlr7XNb99IP48K5c'
 import { API_KEY } from '../conf.js'
-console.log(API_KEY);
 
-const NUMBER_OF_TOP_STORIES = 4
+const NUMBER_OF_TOP_STORIES = 3
 
 // 1000 milliseconds * 60 seconds * 30 minutes
 const REFRESH_RATE = 1000 * 60 * 30
@@ -75,8 +74,8 @@ function renderTopStories(topStories) {
         text: json.id,
         width: 128,
         height: 128,
-        colorDark : '#BCE784',
-        colorLight : '#5DD39E'
+        colorDark : 'rgb(33, 33, 33)',
+        colorLight : 'white'
       })
     })
   }
