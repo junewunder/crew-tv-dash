@@ -2,11 +2,11 @@
   outline: none;
 
   /* color pallette from https://coolors.co/bce784-5dd39e-348aa7-525174-513b56 */
-  --lime-green: #BCE784;
+  /*--lime-green: #BCE784;
   --forest-green: #5DD39E;
   --steel-blue: #348AA7;
   --dark-blue: #525174;
-  --purple-blue: #513B56;
+  --purple-blue: #513B56;*/
 
   --text-color: rgb(33, 33, 33);
 }
@@ -18,10 +18,30 @@ html, body, section {
   font-family: sans-serif;
 }
 
-body {
-  background-color: var(--lime-green);
+// NAVBAR
+.navbar > .container {
+  justify-content: center;
 }
 
+.nav {
+  margin-top: auto;
+}
+
+.nav-logo {
+  margin: 1em;
+  width: 100px;
+}
+
+.navbar-nav > li {
+  padding-left: 1em;
+  padding-right: 1em;
+}
+
+.navbar-nav {
+  padding-top: 2em;
+}
+
+// SLICK
 .slick-slide {
   padding: 2em;
 }
@@ -53,9 +73,9 @@ body {
   border-radius: 1.5em;
   height: 3em;
   width: 3em;
-  border: var(--steel-blue) 1em solid;
+  border: blue 1em solid;
 }
 
 .slick-dots li.slick-active button {
-  background-color: var(--dark-blue);
+  background-color: darkblue;
 }

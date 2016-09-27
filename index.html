@@ -2,14 +2,36 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>CS Crew TV Dashboard</title>
+
+    <link href="./node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="./node_modules/bootstrap/dist/css/bootstrap-theme.min.css" rel="stylesheet">
     <link rel="stylesheet" href="/css/slick.css">
     <link rel="stylesheet" href="/css/style.css">
   </head>
   <body>
-    <section id="main-section"></section>
-    <div id="dots-container"></div>
-  </body>
 
-  <script src="/build/main.js" charset="utf-8"></script>
+    <nav class="navbar navbar-default">
+      <div class="container">
+        <div class="navbar-header">
+          <img class="nav-logo" src="/assets/logo-black.png">
+        </div>
+        <ul class="nav navbar-nav">
+          <li>
+            <h3 id="date">September 27th 2016</h3>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="container">
+      <section id="main-section"></section>
+      <!-- <div id="dots-container"></div> -->
+    </div>
+
+    <script src="/build/main.js" charset="utf-8"></script>
+
+  </body>
 </html>

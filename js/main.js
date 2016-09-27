@@ -6,6 +6,7 @@ window.$ = $;
 window.jQuery = jQuery;
 
 require('../lib/slick.min.js')
+require('bootstrap')
 
 $('#main-section').slick({
   adaptiveHeight: true,
