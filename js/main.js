@@ -5,6 +5,8 @@ import jQuery from 'jquery';
 window.$ = $;
 window.jQuery = jQuery;
 
+const ONE_DAY_IN_MS = 24 * 60 * 60 * 1000
+
 require('../lib/slick.min.js')
 require('bootstrap')
 
@@ -16,7 +18,7 @@ $('#main-section').slick({
   dots: true,
 })
 
-const pages = ['top-article', 'test', 'test2']
+const pages = ['top-article']//, 'test', 'test2']
 
 for (const pageName of pages) {
   const id = `section-${ pageName }`
@@ -36,3 +38,18 @@ for (const pageName of pages) {
     })
     .then(() => $('.slick-list')[0].style = '')
 }
+
+// Navbar Date
+const MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+const DAYS = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
+
+function updateDate() {
+  let date = new Date(Date.now())
+  $('#nav-date').text(`${ DAYS[date.getDay()] }, ${ MONTHS[date.getMonth()] } ${ date.getDate() }, ${ date.getFullYear() }`)
+  setTimeout(updateDate, ONE_DAY_IN_MS + 10)
+}
+
+updateDate()
+let date = new Date(Date.now())
+let midnightTomorrow = (new Date(`${ date.getMonth() + 1 } ${ date.getDate() + 1 } ${ date.getFullYear() }`)).valueOf()
+setTimeout(updateDate, midnightTomorrow - Date.now())

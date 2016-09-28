@@ -61,12 +61,12 @@
 /******/ 	__webpack_require__.p = "/build/";
 
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 4);
+/******/ 	return __webpack_require__(__webpack_require__.s = 17);
 /******/ })
 /************************************************************************/
-/******/ ([
-/* 0 */,
-/* 1 */
+/******/ ({
+
+/***/ 1:
 /***/ function(module, exports) {
 
 "use strict";
@@ -78,9 +78,8 @@ Object.defineProperty(exports, "__esModule", {
 var API_KEY = exports.API_KEY = 'AIzaSyB8gKeYHVGeDb6c-lNJlr7XNb99IP48K5c';
 
 /***/ },
-/* 2 */,
-/* 3 */,
-/* 4 */
+
+/***/ 17:
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -208,4 +207,5 @@ function renderTopStories(topStories) {
 }
 
 /***/ }
-/******/ ]);
+
+/******/ });
