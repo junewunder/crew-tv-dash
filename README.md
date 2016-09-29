@@ -32,3 +32,4 @@
  - jQuery
  - d3
  - Bootstrap
+ - Chart.js https://github.com/chartjs/Chart.js

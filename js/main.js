@@ -17,7 +17,7 @@ $('#main-section').slick({
   dots: true,
 })
 
-const pages = ['test', 'test2']
+const pages = ['attendance']
 
 for (const pageName of pages) {
   const id = `section-${ pageName }`
@@ -30,9 +30,12 @@ for (const pageName of pages) {
       )
     })
     .then(() => {
-      $.getScript(`/js/${ pageName }.js`)
+      $.getScript(`/build/${ pageName }.js`)
     })
     .then(() => {
       $('head').append(`<link rel="stylesheet" href="/css/${ pageName }.css" type="text/css"/>`);
+    })
+    .then(() => {
+      $('.slick-list')[0].style = ''
     })
 }
