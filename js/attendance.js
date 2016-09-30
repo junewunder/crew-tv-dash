@@ -33,7 +33,7 @@ function renderPieChart(dataset) {
   let labels = dataset.map((data) => data.label)
   let reasonAmounts = dataset.map((data) => data.count)
 
-  let ctx = document.getElementById("my-chart");
+  let ctx = document.getElementById("pie-chart");
   let data = {
     labels,
     datasets: [{
