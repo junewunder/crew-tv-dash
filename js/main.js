@@ -19,23 +19,17 @@ $('#main-section').slick({
 
 const pages = ['attendance']
 
-for (const pageName of pages) {
-  const id = `section-${ pageName }`
-  fetch(`/pages/${ pageName }.html`)
-    .then((response) => response.text())
-    .then((htmlText) => {
-      $('#main-section').slick(
-        'slickAdd',
-        `<section id="${ id }">${ htmlText }</section>`
-      )
-    })
-    .then(() => {
-      $.getScript(`/build/${ pageName }.js`)
-    })
-    .then(() => {
-      $('head').append(`<link rel="stylesheet" href="/css/${ pageName }.css" type="text/css"/>`);
-    })
-    .then(() => {
-      $('.slick-list')[0].style = ''
-    })
+let id, pageName
+let functionChain = [
+  response => response.text(),
+  htmlText => $('#main-section').slick('slickAdd', `<section id="${ id }">${ htmlText }</section>`),
+  _ => $.getScript(`/build/${ pageName }.js`),
+  _ => $('head').append(`<link rel="stylesheet" href="/css/${ pageName }.css" type="text/css"/>`),
+  _ => $('.slick-list')[0].style = ''
+]
+
+for (pageName of pages) {
+  id = `section-${ pageName }`
+  let promise = fetch(`/pages/${ pageName }.html`)
+  functionChain.map(func => promise = promise.then(func))
 }

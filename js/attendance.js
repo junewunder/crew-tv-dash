@@ -29,6 +29,11 @@ fetch('https://www.uvm.edu/~cscrew/api/signins/today')
   })
   .then(renderPieChart)
 
+const DAYS_TO_GRAPH = 14
+fetch('https://www.uvm.edu/~cscrew/api/signins/numdaysagorange/' + DAYS_TO_GRAPH)
+  .then(response => response.json())
+  .then(renderLineGraph)
+
 function renderPieChart(dataset) {
   let labels = dataset.map((data) => data.label)
   let reasonAmounts = dataset.map((data) => data.count)
@@ -38,11 +43,46 @@ function renderPieChart(dataset) {
     labels,
     datasets: [{
       data: reasonAmounts,
-      backgroundColor: [ "#FF6384", "#36A2EB", "#FFCE56" ],
+      // taken from http://clrs.cc/
+      backgroundColor: [ "#001f3f","#0074D9","#7FDBFF","#39CCCC","#3D9970","#2ECC40","#01FF70","#FFDC00","#FF851B","#FF4136" ]
     }]
   }
   let myDoughnutChart = new Chart(ctx, {
     type: 'doughnut',
+    data: data,
+    options: {}
+  })
+}
+
+function renderLineGraph(dataset) {
+  let ctx = document.getElementById("line-graph");
+  let data = {
+    labels: dataset.map( _ => ''),
+    datasets: [{
+      label: "Signings By Day",
+      fill: false,
+      lineTension: 0.1,
+      backgroundColor: "rgba(75,192,192,0.4)",
+      borderColor: "rgba(75,192,192,1)",
+      borderCapStyle: 'butt',
+      borderDash: [],
+      borderDashOffset: 0.0,
+      borderJoinStyle: 'miter',
+      pointBorderColor: "rgba(75,192,192,1)",
+      pointBackgroundColor: "#fff",
+      pointBorderWidth: 1,
+      pointHoverRadius: 5,
+      pointHoverBackgroundColor: "rgba(75,192,192,1)",
+      pointHoverBorderColor: "rgba(220,220,220,1)",
+      pointHoverBorderWidth: 2,
+      pointHitRadius: 10,
+      data: dataset,
+      spanGaps: false,
+    }]
+  }
+
+  let myLineGraph = new Chart(ctx, {
+    type: 'line',
     data: data,
     options: {}
   })
