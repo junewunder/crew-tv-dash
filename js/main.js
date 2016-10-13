@@ -18,8 +18,12 @@ $('#main-section').slick({
   dots: true,
 })
 
-const pages = ['top-article']//, 'test', 'test2']
+const pages = ['attendance', 'top-article']
 
+// Technically making functions in a loop is bad
+// but I need to use a variable 'pageName' and 'id'
+// and you can't inject variables into function scopes
+// in javascript.  so I'm going to do this instead
 for (const pageName of pages) {
   const id = `section-${ pageName }`
   fetch(`/pages/${ pageName }.html`)
@@ -39,6 +43,7 @@ for (const pageName of pages) {
     .then(() => $('.slick-list')[0].style = '')
 }
 
+// Spaghetti code below here
 // Navbar Date
 const MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
 const DAYS = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
@@ -53,3 +58,24 @@ updateDate()
 let date = new Date(Date.now())
 let midnightTomorrow = (new Date(`${ date.getMonth() + 1 } ${ date.getDate() + 1 } ${ date.getFullYear() }`)).valueOf()
 setTimeout(updateDate, midnightTomorrow - Date.now())
+
+updateTime()
+setInterval(updateTime, 1000)
+function updateTime() {
+  let $hours = $('#nav-hours')
+  let $minutes = $('#nav-minutes')
+  let $amOrPm = $('#nav-am-pm')
+
+  let date = new Date(Date.now())
+  let hours = date.getHours()
+  let minutes = date.getMinutes()
+
+  if (hours !== 0)
+    $hours.text(hours % 13)
+  else
+    $hours.text(12)
+
+  $minutes.text(minutes)
+
+  $amOrPm.text((hours < 12) ? 'am' : 'pm')
+}

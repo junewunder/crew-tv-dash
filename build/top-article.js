@@ -61,12 +61,12 @@
 /******/ 	__webpack_require__.p = "/build/";
 
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 17);
+/******/ 	return __webpack_require__(__webpack_require__.s = 169);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ 1:
+/***/ 106:
 /***/ function(module, exports) {
 
 "use strict";
@@ -79,13 +79,13 @@ var API_KEY = exports.API_KEY = 'AIzaSyB8gKeYHVGeDb6c-lNJlr7XNb99IP48K5c';
 
 /***/ },
 
-/***/ 17:
+/***/ 169:
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
 'use strict';
 
-var _conf = __webpack_require__(1);
+var _conf = __webpack_require__(106);
 
 var NUMBER_OF_TOP_STORIES = 3;
 

@@ -1,3 +1,5 @@
 node_modules
 conf.js
 build
+
+build/main.js

@@ -41,6 +41,22 @@ html, body, section {
   padding-top: 2em;
 }
 
+#nav-time-container {
+  display: flex;
+}
+
+#nav-time {
+  padding-right: .25em;
+}
+
+#nav-am-pm {
+  padding-right: .5em;
+}
+
+#nav-date {
+  padding-left: .5em;
+}
+
 // SLICK
 .slick-slide {
   padding: 2em;

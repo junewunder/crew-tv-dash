@@ -31,6 +31,7 @@
  - jQuery
  - d3
  - Bootstrap
+ - Chart.js https://github.com/chartjs/Chart.js
  - https://github.com/davidshimjs/qrcodejs
  - http://kenwheeler.github.io/slick/
  - https://github.com/HackerNews/API
