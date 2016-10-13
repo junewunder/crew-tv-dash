@@ -1,0 +1,42 @@
+#section-top-article {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#story-table {
+
+}
+
+.story-row {
+  background-color: #BCE784FF;
+  padding: 1em;
+  /*border-bottom: black 2px solid;
+  margin-left: 2em;*/
+}
+
+.story-qr {
+  padding: 1em;
+}
+
+.story-title-container {
+  padding: 0;
+  vertical-align: bottom;
+}
+
+.story-title {
+  padding-left: .9em;
+  font-size: 2.5em;
+  margin-top: 1em;
+  margin-bottom: .1em;
+  padding-bottom: 0;
+}
+
+.story-url {
+  padding-left: 2em;
+  padding-bottom: 1em;
+  margin-top: .1em;
+  margin-bottom: .1em;
+  color: grey;
+  line-height: normal;
+}

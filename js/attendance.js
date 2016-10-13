@@ -1,6 +1,8 @@
 import * as d3 from 'd3'
 import Chart from 'chart.js'
 
+console.log('HTLLLLOOOO');
+
 fetch('https://www.uvm.edu/~cscrew/api/signins/today')
   .then(response => response.json())
   .then(json => {

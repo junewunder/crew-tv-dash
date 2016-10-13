@@ -27,9 +27,11 @@
  3. Run `webpack --watch` in another terminal tab/window.  This will transpile your javascript ES6 code into ES5 code.
 
 
-### Libraries
-
+### Libraries/APIs
  - jQuery
  - d3
  - Bootstrap
  - Chart.js https://github.com/chartjs/Chart.js
+ - https://github.com/davidshimjs/qrcodejs
+ - http://kenwheeler.github.io/slick/
+ - https://github.com/HackerNews/API
