@@ -26,7 +26,7 @@ const pages = ['attendance', 'top-article']
 // in javascript.  so I'm going to do this instead
 for (const pageName of pages) {
   const id = `section-${ pageName }`
-  fetch(`/pages/${ pageName }.html`)
+  fetch(`../pages/${ pageName }.html`)
     .then((response) => response.text())
     .then((htmlText) => {
       $('#main-section').slick(
@@ -35,10 +35,10 @@ for (const pageName of pages) {
       )
     })
     .then(() => {
-      $.getScript(`/build/${ pageName }.js`)
+      $.getScript(`../build/${ pageName }.js`)
     })
     .then(() => {
-      $('head').append(`<link rel="stylesheet" href="/css/${ pageName }.css" type="text/css"/>`);
+      $('head').append(`<link rel="stylesheet" href="../css/${ pageName }.css" type="text/css"/>`);
     })
     .then(() => $('.slick-list')[0].style = '')
 }
@@ -67,7 +67,7 @@ function updateTime() {
   let $amOrPm = $('#nav-am-pm')
 
   let date = new Date(Date.now())
-  let hours = date.getHours()
+  let hours = date.getHours() + 1
   let minutes = date.getMinutes()
 
   if (hours !== 0)
