@@ -61,7 +61,7 @@ function renderLineGraph(dataset) {
   let data = {
     labels: dataset.map( _ => ''),
     datasets: [{
-      label: "Signings By Day",
+      label: "Signins By Day",
       fill: false,
       lineTension: 0.1,
       backgroundColor: "rgba(75,192,192,0.4)",

@@ -3,7 +3,7 @@ let fs = require('fs')
 function generateEntryPoints() {
   let entryPoints = {}
 
-  let jsFiles = fs.readdirSync('/Users/JacobWunder/Documents/crew-tv-dash/js')
+  let jsFiles = fs.readdirSync('./js')
   for(const fileName of jsFiles) {
     let name = fileName.split('.')[0]
     entryPoints[name] = './js/' + fileName
@@ -26,7 +26,7 @@ module.exports = {
       {
         test: /\.js$/,
         exclude: /(node_modules|bower_components)/,
-        loader: 'babel',
+        loader: 'babel-loader',
         query: {
           presets: ['es2015']
         }
