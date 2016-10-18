@@ -18,7 +18,7 @@ $('#main-section').slick({
   dots: true,
 })
 
-const pages = ['calendar']//['attendance', 'top-article']
+const pages = ['calendar', 'attendance', 'top-article']
 
 // Technically making functions in a loop is bad
 // but I need to use a variable 'pageName' and 'id'
