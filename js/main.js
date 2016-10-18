@@ -18,7 +18,7 @@ $('#main-section').slick({
   dots: true,
 })
 
-const pages = ['attendance', 'top-article']
+const pages = ['calendar', 'attendance', 'top-article']
 
 // Technically making functions in a loop is bad
 // but I need to use a variable 'pageName' and 'id'
@@ -75,7 +75,7 @@ function updateTime() {
   else
     $hours.text(12)
 
-  $minutes.text(minutes)
+  $minutes.text((minutes + '').length > 1 ? minutes : '0' + minutes )
 
   $amOrPm.text((hours < 12) ? 'am' : 'pm')
 }
