@@ -12,7 +12,7 @@ require('bootstrap')
 
 $('#main-section').slick({
   autoplay: true,
-  autoplaySpeed: 30000,
+  autoplaySpeed: 60000,
   arrows: false,
   appendDots: '#dots-container',
   dots: true,
@@ -67,13 +67,15 @@ function updateTime() {
   let $amOrPm = $('#nav-am-pm')
 
   let date = new Date(Date.now())
-  let hours = date.getHours() + 1
+  let hours = date.getHours()
   let minutes = date.getMinutes()
+  let hoursText = 0
 
-  if (hours !== 0)
-    $hours.text(hours % 13)
-  else
-    $hours.text(12)
+  if (hours > 12) hoursText = hours - 12
+  else hoursText = hours
+  if (hoursText === 0) hoursText = 12
+
+  $hours.text(hoursText)
 
   $minutes.text((minutes + '').length > 1 ? minutes : '0' + minutes )
 
