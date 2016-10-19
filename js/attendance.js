@@ -62,16 +62,16 @@ function renderPieChart(dataset) {
 
 // const MONTH_LENGTHS = { 0: 31, 1: 28, 2,3,4,5,6,7,8,9,10,11 }
 const DAY_NAMES = ['S', 'M', 'T', 'W', 'R', 'F', 'S']
-function getArrayOfDates(currentDay, length) {
+function getArrayOfDays(currentDay, length) {
   let days = []
 
   for (let i = 0; i < length; i++) {
-    currentDay--
     if (currentDay < 0) currentDay = 6
     days.push(DAY_NAMES[currentDay])
+    currentDay--
   }
 
-  return days
+  return days.reverse()
 }
 
 function renderLineGraph(dataset) {
@@ -79,7 +79,7 @@ function renderLineGraph(dataset) {
   let ctx = document.getElementById("line-graph")
   let date = new Date()
   let data = {
-    labels: getArrayOfDates(date.getDay(), DAYS_TO_GRAPH), // dataset.map(_ => ''),
+    labels: getArrayOfDays(date.getDay(), DAYS_TO_GRAPH),
     datasets: [{
       label: "Signins By Day",
       fill: false,
