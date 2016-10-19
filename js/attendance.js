@@ -1,40 +1,44 @@
 import * as d3 from 'd3'
 import Chart from 'chart.js'
 
-console.log('HTLLLLOOOO');
+const DAYS_TO_GRAPH = 14
+Chart.defaults.global.animation.duration = 0
 
-fetch('https://www.uvm.edu/~cscrew/api/signins/today')
-  .then(response => response.json())
-  .then(json => {
-    let reasons = []
-    for (let person of json) {
+updateAttendance()
+setInterval(updateAttendance, 60000)
 
-      let reasonAdded = false
+function updateAttendance() {
+  fetch('https://www.uvm.edu/~cscrew/api/signins/numdaysagorange/' + DAYS_TO_GRAPH)
+    .then(response => response.json())
+    .then(renderLineGraph)
 
-      for (let reasonObj of reasons) {
-        if (person.reason.Id === reasonObj.id) {
-          reasonAdded = true
-          reasonObj.count++
-        }
-      }
+  fetch('https://www.uvm.edu/~cscrew/api/signins/today')
+    .then(response => response.json())
+    .then(filterSigninReasons)
+    .then(renderPieChart)
+}
 
-      if (!reasonAdded) {
-        reasons.push({
-          id: person.reason.Id,
-          label: person.reason.Text,
-          count: 1
-        })
+function filterSigninReasons(json) {
+  let reasons = []
+  for (let person of json) {
+    let reasonAdded = false
+    for (let reasonObj of reasons) {
+      if (person.reason.Id === reasonObj.id) {
+        reasonAdded = true
+        reasonObj.count++
       }
     }
-    reasons.sort((a, b) => a.count > b.count)
-    return reasons
-  })
-  .then(renderPieChart)
 
-const DAYS_TO_GRAPH = 14
-fetch('https://www.uvm.edu/~cscrew/api/signins/numdaysagorange/' + DAYS_TO_GRAPH)
-  .then(response => response.json())
-  .then(renderLineGraph)
+    if (!reasonAdded) reasons.push({
+      id: person.reason.Id,
+      label: person.reason.Text,
+      count: 1
+    })
+  }
+
+  reasons.sort((a, b) => a.count > b.count)
+  return reasons
+}
 
 function renderPieChart(dataset) {
   let labels = dataset.map((data) => data.label)
