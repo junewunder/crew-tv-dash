@@ -18,12 +18,13 @@ $('#main-section').slick({
   dots: true,
 })
 
-const pages = ['calendar', 'attendance', 'top-article']
+const pages = ['attendance', 'calendar', 'top-article']
 
 // Technically making functions in a loop is bad
 // but I need to use a variable 'pageName' and 'id'
 // and you can't inject variables into function scopes
 // in javascript.  so I'm going to do this instead
+/* jshint ignore: start */
 for (const pageName of pages) {
   const id = `section-${ pageName }`
   fetch(`pages/${ pageName }.html`)
@@ -42,6 +43,7 @@ for (const pageName of pages) {
     })
     .then(() => $('.slick-list')[0].style = '')
 }
+/* jshint ignore: end */
 
 // Spaghetti code below here
 // Navbar Date
