@@ -12,18 +12,19 @@ require('bootstrap')
 
 $('#main-section').slick({
   autoplay: true,
-  autoplaySpeed: 30000,
+  autoplaySpeed: 60000,
   arrows: false,
   appendDots: '#dots-container',
   dots: true,
 })
 
-const pages = ['calendar', 'attendance', 'top-article']
+const pages = ['attendance', 'calendar', 'top-article']
 
 // Technically making functions in a loop is bad
 // but I need to use a variable 'pageName' and 'id'
 // and you can't inject variables into function scopes
 // in javascript.  so I'm going to do this instead
+/* jshint ignore: start */
 for (const pageName of pages) {
   const id = `section-${ pageName }`
   fetch(`pages/${ pageName }.html`)
@@ -42,6 +43,7 @@ for (const pageName of pages) {
     })
     .then(() => $('.slick-list')[0].style = '')
 }
+/* jshint ignore: end */
 
 // Spaghetti code below here
 // Navbar Date
@@ -67,13 +69,15 @@ function updateTime() {
   let $amOrPm = $('#nav-am-pm')
 
   let date = new Date(Date.now())
-  let hours = date.getHours() + 1
+  let hours = date.getHours()
   let minutes = date.getMinutes()
+  let hoursText = 0
 
-  if (hours !== 0)
-    $hours.text(hours % 13)
-  else
-    $hours.text(12)
+  if (hours > 12) hoursText = hours - 12
+  else hoursText = hours
+  if (hoursText === 0) hoursText = 12
+
+  $hours.text(hoursText)
 
   $minutes.text((minutes + '').length > 1 ? minutes : '0' + minutes )
 
